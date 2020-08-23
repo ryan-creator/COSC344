@@ -1,0 +1,9 @@
+SELECT lname, salary
+FROM employee;
+
+UPDATE employee
+SET salary = salary * 1.1
+WHERE NOT lname = 'Borg';
+
+SELECT lname, salary
+FROM employee;

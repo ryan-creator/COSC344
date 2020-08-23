@@ -1,0 +1,7 @@
+SQL> describe x;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ I                                                  NUMBER(38)
+ R                                                  NUMBER(6,2)
+
+SQL> spool off;

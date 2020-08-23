@@ -1,0 +1,3 @@
+DECLARE
+CURSOR dep IS
+SELECT * FROM dependent;

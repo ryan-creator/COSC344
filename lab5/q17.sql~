@@ -1,0 +1,3 @@
+SELECT amt
+FROM orders
+WHERE odate = '3/10/90';

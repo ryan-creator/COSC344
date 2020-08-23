@@ -1,0 +1,1 @@
+SELECT fname, lname FROM emploee GROUP BY lname ORDER BY salary;

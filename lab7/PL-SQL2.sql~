@@ -1,0 +1,18 @@
+DECLARE
+CURSOR work IS
+SELECT * FROM works_on;
+emp works%ROWTYPE;
+shortHours EXCEPTION;
+
+BEGIN
+FOR emp IN works LOOP
+DBMS_OUTPUT.PUT_LINE(emp.ESSN || ' -> ' || emp.hours);
+IF works.hours<8 THEN
+RAISE shortHours;
+END IF:
+END LOOP;
+EXCEPTION
+WHEN shortHours THEN
+DBMS_OUTPUT.PUT_LINE('Do not  work enough hours');
+END;
+/

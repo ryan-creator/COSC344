@@ -1,0 +1,8 @@
+DROP TABLE emp_dep;
+
+CREATE TABLE emp_dep
+AS (
+   SELECT fname, lname, dependent_name, dependent.sex, dependent.bdate
+   FROM employee, dependent);
+
+SELECT * FROM emp_dep;

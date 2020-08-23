@@ -1,0 +1,5 @@
+SELECT fname, amt
+FROM customers, orders
+WHERE cnum =
+(SELECT MAX(amt)
+FROM orders);
