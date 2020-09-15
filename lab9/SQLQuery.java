@@ -13,11 +13,13 @@ import java.sql.*;
  * @author Paul Werstein
  */
 
-public class Payrise {
+public class SQLQuery {
+
+    private static ArrayList<Employee> employees = new ArrayList<Employee>();
 
 
     public static void main (String[] args) {
-	new Payrise().go();
+	new SQLQuery().go();
     }
 
     // This is the function that does all the work
@@ -46,8 +48,19 @@ public class Payrise {
 	    if (con != null) {
 		try {
                     Statement stmt = con.createStatement();
-                    String sqlSearch = "UPDATE employee SET salary=salary * 1.1";
-                    int success = stmt.executeUpdate(sqlSearch);
+                    ResultSet rs =stmt.executeQuery("SELECT fname, lname, salary FROM employee ORDER BY salary");
+                    
+                    while(rs.next()) {
+                        employees.add(new Employee(
+                                                   rs.getString("fname"),
+                                                   rs.getString("lname"),
+                                                   Integer.parseInt(rs.getString("salary"))));
+                    }
+
+                    
+
+                    System.out.println(Arrays.toString(employees.toArray()));
+                    
 		    con.close();
 		} catch (SQLException e) {
 		    quit(e.getMessage());
@@ -63,3 +76,5 @@ public class Payrise {
     }
 
 } // end class TestLogin
+
+

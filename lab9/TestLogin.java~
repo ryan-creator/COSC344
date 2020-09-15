@@ -13,11 +13,11 @@ import java.sql.*;
  * @author Paul Werstein
  */
 
-public class Payrise {
+public class TestLogin {
 
 
     public static void main (String[] args) {
-	new Payrise().go();
+	new TestLogin().go();
     }
 
     // This is the function that does all the work
@@ -45,9 +45,6 @@ public class Payrise {
 	} finally {
 	    if (con != null) {
 		try {
-                    Statement stmt = con.createStatement();
-                    String sqlSearch = "UPDATE employee SET salary=salary * 1.1";
-                    int success = stmt.executeUpdate(sqlSearch);
 		    con.close();
 		} catch (SQLException e) {
 		    quit(e.getMessage());
@@ -63,3 +60,5 @@ public class Payrise {
     }
 
 } // end class TestLogin
+
+
