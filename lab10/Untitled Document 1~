@@ -1,0 +1,2 @@
+GRANT SELECT ON emp TO rcole1; -> SELECT * FROM emp;
+GRANT UPDATE(dname) ON dept TO rcole1; -> UPDATE dept SET dname="smarties" WHERE dnumber=0;

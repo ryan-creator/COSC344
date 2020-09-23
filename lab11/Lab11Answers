@@ -1,0 +1,29 @@
+GRANT SELECT ON emp TO rcole1;
+      -> SELECT * FROM emp;
+      
+GRANT UPDATE(dname) ON dept TO rcole1;
+      -> UPDATE rcole.dept SET dname='smarties' WHERE dnumber=0;
+
+REVOKE ALL ON dept FROM rcole1;
+REVOKE ALL ON emp FROM rcole1;
+
+CREATE ROLE student;
+GRANT SELECT ON dept TO student;
+GRANT SELECT ON emp TO student;
+GRANT student TO rcole1;
+		-> SELECT * FROM rcole.emp;
+		-> SELECT * FROM rcole.dept;
+
+CREATE VIEW empDept AS SELECT fname, lname, dname FROM emp, dept WHERE dno=dnumber;
+GRANT SELECT ON empDept TO rcole1;
+		-> SELECT * FROM empDept;
+		-> SELECT * FROM rcole.empDept;
+
+
+CREATE VIEW checkSal AS SELECT fname, lname, salary FROM emp WHERE salary < 50000;
+GRANT SELECT ON checkSal to rcole1;
+		-> SELECT * FROM checkSal;
+		-> SELECT * FROM rcole.checkSal;
+
+
+
